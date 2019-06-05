@@ -5,6 +5,9 @@ import android.support.v4.util.ArrayMap;
 
 import com.yaowang.myemotionkeyboard.R;
 
+import java.util.HashMap;
+import java.util.LinkedHashMap;
+
 
 /**
  * @author : zejian
@@ -19,17 +22,21 @@ public class EmotionUtils {
 	 */
 	public static final int EMOTION_CLASSIC_TYPE=0x0001;//经典表情
 
+	public static final int FUNCTION_CLASSIC_TYPE = 0X0002;//功能
+
 	/**
 	 * key-表情文字;
 	 * value-表情图片资源
 	 */
-	public static ArrayMap<String, Integer> EMPTY_MAP;
-	public static ArrayMap<String, Integer> EMOTION_CLASSIC_MAP;
+	public static LinkedHashMap<String, Integer> EMPTY_MAP;
+	public static LinkedHashMap<String, Integer> EMOTION_CLASSIC_MAP;
+	public static LinkedHashMap<String, Integer> FUNCTION_CLASSIC_MAP;
 
 
 	static {
-		EMPTY_MAP = new ArrayMap<>();
-		EMOTION_CLASSIC_MAP = new ArrayMap<>();
+		EMPTY_MAP = new LinkedHashMap<>();
+		EMOTION_CLASSIC_MAP = new LinkedHashMap<>();
+		FUNCTION_CLASSIC_MAP = new LinkedHashMap<>();
 
 		EMOTION_CLASSIC_MAP.put("[呵呵]", R.drawable.d_hehe);
 		EMOTION_CLASSIC_MAP.put("[嘻嘻]", R.drawable.d_xixi);
@@ -86,6 +93,14 @@ public class EmotionUtils {
 		EMOTION_CLASSIC_MAP.put("[猪头]", R.drawable.d_zhutou);
 		EMOTION_CLASSIC_MAP.put("[熊猫]", R.drawable.d_xiongmao);
 		EMOTION_CLASSIC_MAP.put("[兔子]", R.drawable.d_tuzi);
+
+		FUNCTION_CLASSIC_MAP.put("相册", R.drawable.ic_image);
+		FUNCTION_CLASSIC_MAP.put("拍摄", R.drawable.ic_photography);
+		FUNCTION_CLASSIC_MAP.put("视频", R.drawable.ic_video);
+		FUNCTION_CLASSIC_MAP.put("语音输入", R.drawable.ic_voice2);
+		FUNCTION_CLASSIC_MAP.put("文件", R.drawable.ic_file);
+		FUNCTION_CLASSIC_MAP.put("我的收藏", R.drawable.ic_shoucan);
+		FUNCTION_CLASSIC_MAP.put("位置", R.drawable.ic_location);
 	}
 
 	/**
@@ -100,6 +115,9 @@ public class EmotionUtils {
 			case EMOTION_CLASSIC_TYPE:
 				integer = EMOTION_CLASSIC_MAP.get(imgName);
 				break;
+			case FUNCTION_CLASSIC_TYPE:
+				integer = FUNCTION_CLASSIC_MAP.get(imgName);
+				break;
 			default:
 				LogUtils.e("the emojiMap is null!! Handle Yourself ");
 				break;
@@ -112,11 +130,14 @@ public class EmotionUtils {
 	 * @param EmotionType
 	 * @return
 	 */
-	public static ArrayMap<String, Integer> getEmojiMap(int EmotionType){
-		ArrayMap EmojiMap=null;
+	public static LinkedHashMap<String, Integer> getEmojiMap(int EmotionType){
+		LinkedHashMap EmojiMap=null;
 		switch (EmotionType){
 			case EMOTION_CLASSIC_TYPE:
 				EmojiMap=EMOTION_CLASSIC_MAP;
+				break;
+			case FUNCTION_CLASSIC_TYPE:
+				EmojiMap =FUNCTION_CLASSIC_MAP;
 				break;
 			default:
 				EmojiMap=EMPTY_MAP;

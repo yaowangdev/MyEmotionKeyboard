@@ -43,7 +43,4 @@ public class BaseFragment extends Fragment{
         args = getArguments();
     }
 
-
-
-
 }

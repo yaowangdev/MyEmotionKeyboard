@@ -118,6 +118,8 @@ public class EmotionKeyboard {
 	        return this;
 	    }
 
+
+
 	    /**
 	     * 设置表情内容布局
 	     * @param emotionView

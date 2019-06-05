@@ -39,11 +39,15 @@ public class FragmentFactory {
      */
     public Fragment getFragment(int emotionType){
         Bundle bundle = new Bundle();
-
         bundle.putInt(FragmentFactory.EMOTION_MAP_TYPE,emotionType);
-
         EmotiomComplateFragment fragment= EmotiomComplateFragment.newInstance(EmotiomComplateFragment.class,bundle);
+        return fragment;
+    }
 
+    public Fragment getFragment2(int emotionType){
+        Bundle bundle = new Bundle();
+        bundle.putInt(FragmentFactory.EMOTION_MAP_TYPE,emotionType);
+        FunctionComplateFragment fragment = FunctionComplateFragment.newInstance(FunctionComplateFragment.class,bundle);
         return fragment;
     }
 

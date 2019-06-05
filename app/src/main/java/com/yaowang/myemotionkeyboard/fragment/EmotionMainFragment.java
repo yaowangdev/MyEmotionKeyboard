@@ -208,7 +208,9 @@ public class EmotionMainFragment extends BaseFragment {
         FragmentFactory factory=FragmentFactory.getSingleFactoryInstance();
         //创建修改实例
         EmotiomComplateFragment f1= (EmotiomComplateFragment) factory.getFragment(EmotionUtils.EMOTION_CLASSIC_TYPE);
+        FunctionComplateFragment f2 = (FunctionComplateFragment) factory.getFragment2(EmotionUtils.FUNCTION_CLASSIC_TYPE);
         fragments.add(f1);
+        fragments.add(f2);
         Bundle b=null;
         for (int i=0;i<7;i++){
             b=new Bundle();
@@ -216,7 +218,6 @@ public class EmotionMainFragment extends BaseFragment {
             Fragment1 fg= Fragment1.newInstance(Fragment1.class,b);
             fragments.add(fg);
         }
-
         NoHorizontalScrollerVPAdapter adapter =new NoHorizontalScrollerVPAdapter(getActivity().getSupportFragmentManager(),fragments);
         viewPager.setAdapter(adapter);
     }
